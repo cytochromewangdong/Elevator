@@ -1,0 +1,33 @@
+elevator sample
+
+sample code to call elevator api
+
+requirements:
+Python 2.0 series
+
+uage:
+python testclient.py -S SERVICE_END_POINT
+
+REST endpoints:
+Endpoint              Body Parameters             Notes
+POST /reset           N/A                         reset elevator's stats and world clock
+POST /workload        request:                    send user request to elevator, also increase world clock by 1 time unit
+                      [
+                         // In format of
+                         [
+                            int of user ID,
+                            int of source floor,
+                            bool to indicate direction, True to go up, False to go down
+                         ],
+                         ...
+                      ]
+                      goto:
+                      [
+                         // In format of
+                         [
+                            int of user ID,
+                            int of destination floor,
+                         ],
+                         ...
+                      ]
+                      both parameters are optional
